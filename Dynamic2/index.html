@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dynamic images</title>
+</head>
+
+<body>
+    <div id="hero">
+        <div class="navbar">
+            <img src="images/logo.jpg" alt="" class="logo">
+            <div class="user">
+                <button type="button">Explore</button>
+                <img src="images/user.jpg" class="user">
+            </div>
+        </div>
+        <div class="container">
+            <div class="info">
+                <h1>DISCOVERS</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores voluptate id nisi quam
+                    necessitatibus neque,<br> doloribus optio dolorum fugiat! Reiciendis, praesentium? Dolore,
+                    distinctio delectus debitis!</p>
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+        <div class="slider">
+            <img src="images/LArrow.png" id="prev" alt="">
+            <div class="preview">
+                <img src="images/sm1.jpg" class="thumbnail active">
+                <img src="images/sm2.jpg" class="thumbnail">
+                <img src="images/sm3.jpg" class="thumbnail">
+                <img src="images/sm4.jpg" class="thumbnail">
+                <img src="images/sm5.jpg" class="thumbnail">
+                <img src="images/sm6.jpg" class="thumbnail">
+                <img src="images/sm7.jpg" class="thumbnail">
+            </div>
+            <img src="images/RArrow.png" id="next" alt="">
+        </div>
+    </div>
+
+    <script>
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+        var backgroundImg = new Array(
+            "images/pic1.jpg",
+            "images/pic2.jpg",
+            "images/pic3.jpg",
+            "images/pic4.jpg",
+            "images/pic5.jpg",
+            "images/pic6.jpg",
+            "images/pic7.jpg"
+        );
+        let i = 0;
+        next.onclick = function () {
+            if (i < 6) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i + 1] + '")';
+                thumbnail[i+1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i++;
+            }
+
+        }
+        prev.onclick = function () {
+            if (i > 0) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i - 1] + '")';
+                thumbnail[i-1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i--;
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>
